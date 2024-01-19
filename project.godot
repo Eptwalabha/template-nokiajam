@@ -1,0 +1,26 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="nokia6jam"
+run/main_scene="res://test-render.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=15
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=840
+window/size/viewport_height=640
+window/size/initial_position_type=3
+window/size/window_width_override=840
+window/size/window_height_override=640
+window/stretch/mode="viewport"

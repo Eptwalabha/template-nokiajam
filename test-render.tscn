@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://pstqes7jcym2"]
+
+[ext_resource type="Texture2D" uid="uid://bn7s2ix0gi4h" path="res://assets/nokia-splash-screen.png" id="1_hyo5j"]
+[ext_resource type="Texture2D" uid="uid://ki2foc21gjse" path="res://icon.svg" id="2_rdvec"]
+[ext_resource type="Script" path="res://Icon.gd" id="3_ud6t4"]
+[ext_resource type="Shader" path="res://pixels.gdshader" id="4_n7wc2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l502v"]
+viewport_path = NodePath("Screen")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udw2h"]
+resource_local_to_scene = true
+shader = ExtResource("4_n7wc2")
+shader_parameter/color_white = Color(0.78, 0.941, 0.847, 1)
+shader_parameter/color_black = Color(0.263, 0.322, 0.239, 1)
+shader_parameter/gap_width = 0.92
+shader_parameter/noise_amount = 0.08
+shader_parameter/screen = SubResource("ViewportTexture_l502v")
+
+[node name="Node2D" type="Node"]
+
+[node name="Screen" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(84, 48)
+
+[node name="Icon2" type="Sprite2D" parent="Screen"]
+texture = ExtResource("1_hyo5j")
+centered = false
+
+[node name="Icon" type="Sprite2D" parent="Screen"]
+visible = false
+position = Vector2(42, 24)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_rdvec")
+script = ExtResource("3_ud6t4")
+
+[node name="Label" type="Label" parent="Screen"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.0
+offset_top = -4.0
+offset_right = 15.0
+offset_bottom = 19.0
+grow_horizontal = 2
+text = "test"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_udw2h")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
