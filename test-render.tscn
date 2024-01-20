@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://pstqes7jcym2"]
 
-[ext_resource type="Texture2D" uid="uid://bn7s2ix0gi4h" path="res://assets/nokia-splash-screen.png" id="1_hyo5j"]
+[ext_resource type="Texture2D" uid="uid://bn7s2ix0gi4h" path="res://assets/img/nokia-splash-screen.png" id="1_hyo5j"]
 [ext_resource type="Texture2D" uid="uid://ki2foc21gjse" path="res://icon.svg" id="2_rdvec"]
 [ext_resource type="Script" path="res://Icon.gd" id="3_ud6t4"]
 [ext_resource type="Shader" path="res://pixels.gdshader" id="4_n7wc2"]
@@ -25,28 +25,26 @@ transparent_bg = true
 size = Vector2i(84, 48)
 
 [node name="Icon2" type="Sprite2D" parent="Screen"]
+visible = false
 texture = ExtResource("1_hyo5j")
 centered = false
 
 [node name="Icon" type="Sprite2D" parent="Screen"]
 visible = false
 position = Vector2(42, 24)
+rotation = 11073.8
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_rdvec")
 script = ExtResource("3_ud6t4")
 
 [node name="Label" type="Label" parent="Screen"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -15.0
-offset_top = -4.0
-offset_right = 15.0
-offset_bottom = 19.0
-grow_horizontal = 2
-text = "test"
-horizontal_alignment = 1
+offset_right = 56.0
+offset_bottom = 50.0
+text = "ptëst super
+ABCD
+ABCD
+ABCD
+ABCD"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_udw2h")

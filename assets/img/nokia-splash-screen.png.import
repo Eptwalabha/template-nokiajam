@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn7s2ix0gi4h"
-path="res://.godot/imported/nokia-splash-screen.png-81fc48a809f0a61912b9a86d7e428504.ctex"
+path="res://.godot/imported/nokia-splash-screen.png-3ba3149fc467ea2940963d43532a1d59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/nokia-splash-screen.png"
-dest_files=["res://.godot/imported/nokia-splash-screen.png-81fc48a809f0a61912b9a86d7e428504.ctex"]
+source_file="res://assets/img/nokia-splash-screen.png"
+dest_files=["res://.godot/imported/nokia-splash-screen.png-3ba3149fc467ea2940963d43532a1d59.ctex"]
 
 [params]
 

@@ -1,0 +1,22 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://cxeg4c7rwp2y3"
+path="res://.godot/imported/lowrez.png-378c1707f9fcf9e1c58476441c2b0c62.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/lowrez/lowrez.png"
+dest_files=["res://.godot/imported/lowrez.png-378c1707f9fcf9e1c58476441c2b0c62.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\' \'-\'~\'", "\'à\'-\'ÿ\'")
+columns=64
+rows=2
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+fallbacks=[]
+compress=true
+scaling_mode=2

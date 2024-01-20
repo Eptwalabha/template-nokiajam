@@ -21,4 +21,5 @@ void fragment() {
 	float grid = max(smoothstep(gap_width, gap_width, uv.x), smoothstep(gap_width, gap_width, uv.y));
 	float noise = noise_amount * random(UV) - noise_amount / 2.0;
 	COLOR = mix(color_white, color_black, clamp(lit - grid, 0.0, 1.0)) + noise;
+	//COLOR = texture(screen, UV);
 }

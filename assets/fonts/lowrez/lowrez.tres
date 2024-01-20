@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://u6ox1bpr2qi5"]
+
+[ext_resource type="FontFile" uid="uid://cxeg4c7rwp2y3" path="res://assets/fonts/lowrez/lowrez.png" id="1_1y4es"]
+
+[resource]
+base_font = ExtResource("1_1y4es")
+spacing_bottom = 1
