@@ -11,10 +11,14 @@ viewport_path = NodePath("Screen")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_udw2h"]
 resource_local_to_scene = true
 shader = ExtResource("4_n7wc2")
+shader_parameter/screen_size = Vector2(84, 48)
 shader_parameter/color_white = Color(0.78, 0.941, 0.847, 1)
 shader_parameter/color_black = Color(0.263, 0.322, 0.239, 1)
-shader_parameter/gap_width = 0.15
-shader_parameter/noise_amount = 0.08
+shader_parameter/door_effect = 0.08
+shader_parameter/door_intensity = 0.8
+shader_parameter/noise_amount = 0.07
+shader_parameter/shadow_offset = Vector2(0.25, 0.25)
+shader_parameter/shadow_intesity = 0.2
 shader_parameter/screen = SubResource("ViewportTexture_l502v")
 
 [node name="Node2D" type="Node"]
@@ -30,9 +34,8 @@ texture = ExtResource("1_hyo5j")
 centered = false
 
 [node name="Icon" type="Sprite2D" parent="Screen"]
-visible = false
-position = Vector2(42, 24)
-rotation = 11622.7
+position = Vector2(44, 37)
+rotation = 14258.3
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_rdvec")
 script = ExtResource("3_ud6t4")
@@ -40,11 +43,9 @@ script = ExtResource("3_ud6t4")
 [node name="Label" type="Label" parent="Screen"]
 offset_right = 56.0
 offset_bottom = 50.0
-text = "ptëst super
-ABCD
-ABCD
-ABCD
-ABCD"
+text = "NOKIA 6
+3310 Jam
+by @eptwalabha"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_udw2h")
