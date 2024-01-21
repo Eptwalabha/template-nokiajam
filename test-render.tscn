@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://pstqes7jcym2"]
+[gd_scene load_steps=6 format=3 uid="uid://pstqes7jcym2"]
 
 [ext_resource type="Texture2D" uid="uid://bn7s2ix0gi4h" path="res://assets/img/nokia-splash-screen.png" id="1_hyo5j"]
 [ext_resource type="Texture2D" uid="uid://ki2foc21gjse" path="res://icon.svg" id="2_rdvec"]
-[ext_resource type="Script" path="res://Icon.gd" id="3_ud6t4"]
 [ext_resource type="Shader" path="res://pixels.gdshader" id="4_n7wc2"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_l502v"]
@@ -14,10 +13,10 @@ shader = ExtResource("4_n7wc2")
 shader_parameter/screen_size = Vector2(84, 48)
 shader_parameter/color_white = Color(0.78, 0.941, 0.847, 1)
 shader_parameter/color_black = Color(0.263, 0.322, 0.239, 1)
-shader_parameter/door_effect = 0.08
+shader_parameter/door_effect = 0.1
 shader_parameter/door_intensity = 0.8
 shader_parameter/noise_amount = 0.07
-shader_parameter/shadow_offset = Vector2(0.25, 0.25)
+shader_parameter/shadow_offset = Vector2(0.2, 0.2)
 shader_parameter/shadow_intesity = 0.2
 shader_parameter/screen = SubResource("ViewportTexture_l502v")
 
@@ -29,16 +28,13 @@ transparent_bg = true
 size = Vector2i(84, 48)
 
 [node name="Icon2" type="Sprite2D" parent="Screen"]
-visible = false
 texture = ExtResource("1_hyo5j")
 centered = false
 
 [node name="Icon" type="Sprite2D" parent="Screen"]
 position = Vector2(44, 37)
-rotation = 14258.3
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_rdvec")
-script = ExtResource("3_ud6t4")
 
 [node name="Label" type="Label" parent="Screen"]
 offset_right = 56.0
