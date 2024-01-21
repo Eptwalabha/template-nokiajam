@@ -1,6 +1,0 @@
-[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://d14edccxo2hku"]
-
-[ext_resource type="FontFile" uid="uid://cpxiyj34edml5" path="res://assets/fonts/nokia/nokia.ttf" id="1_e4rj5"]
-
-[resource]
-base_font = ExtResource("1_e4rj5")

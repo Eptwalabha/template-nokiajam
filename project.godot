@@ -21,14 +21,12 @@ config/icon="res://icon.svg"
 window/size/viewport_width=840
 window/size/viewport_height=640
 window/size/initial_position_type=3
-window/size/window_width_override=840
-window/size/window_height_override=640
 window/stretch/mode="viewport"
 
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false
-theme/custom="res://assets/main-theme.tres"
+theme/custom="res://assets/theme/main-theme.tres"
 theme/default_font_antialiasing=0
 
 [input]

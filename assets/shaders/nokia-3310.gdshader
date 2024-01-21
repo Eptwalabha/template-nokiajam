@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D screen : hint_default_black, filter_nearest;
-uniform vec2 screen_size = vec2(84.0, 48.0);
+uniform vec2 screen_resolution = vec2(84.0, 48.0);
 uniform vec4 color_white : source_color = vec4(0.78, 0.941, 0.847, 1.0); // #c7f0d8;
 uniform vec4 color_black : source_color = vec4(0.263, 0.322, 0.239, 1.0); // #43523d;
 uniform float door_effect : hint_range(0.0, 1.0) = 0.1;
@@ -19,9 +19,9 @@ float random (vec2 uv) {
 // TODO
 // - LCD ghosting
 void fragment() {
-	vec2 uv = fract(vec2(UV.x * screen_size.x, UV.y * screen_size.y));
+	vec2 uv = fract(vec2(UV.x * screen_resolution.x, UV.y * screen_resolution.y));
 	vec2 pixel = texture(screen, UV).ar;
-	vec2 pix_shadow = texture(screen, UV - shadow_offset / screen_size).ar;
+	vec2 pix_shadow = texture(screen, UV - shadow_offset / screen_resolution).ar;
 	float pixel_mask = smoothstep(0.5, 0.5, pixel.x * (1.0 -pixel.y));
 	float screen_door = min(
 		min(smoothstep(0.0, door_effect, uv.x), smoothstep(1.0, 1.0 - door_effect, uv.x)),
