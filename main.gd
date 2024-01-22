@@ -1,7 +1,16 @@
 @tool
 extends Node
 
+@onready var screen : SubViewport = $Screen
 @onready var shaderRect : ColorRect = $ColorRect
+
+@export var orientation: ORIENTATION = ORIENTATION.LANDSCAPE
+@export var palette: PALETTE = PALETTE.ORIGINAL
+
+enum ORIENTATION {
+	LANDSCAPE,
+	PORTRAIT
+}
 
 enum PALETTE {
 	ORIGINAL,
@@ -9,35 +18,20 @@ enum PALETTE {
 	GREY
 }
 
-const PALETTE_COLORS = {
-	"ORIGINAL" = ["#c7f0d8", "#43523d"],
-	"HARSH" = ["#9bc700", "#2b3f09"],
-	"GREY" = ["#879188", "#1a1914"]
-}
-
-@export var palette: PALETTE = PALETTE.ORIGINAL: set = _set_palette
-
-var shader : ShaderMaterial
-
 func _ready() -> void:
-	shader = shaderRect.material as ShaderMaterial;
-	update_palette()
+	# update screen resolution
+	var screen_resolution = Vector2(84, 48) if orientation == ORIENTATION.LANDSCAPE else Vector2(48, 84)
+	screen.size = screen_resolution
+	shaderRect.material.set("shader_parameter/screen_resolution", screen_resolution)
 
-func update_palette() -> void:
-	var colors : Array = get_palette_colors(palette)
-	shaderRect.material.set("shader_parameter/color_white", Color(colors[0]))
-	shaderRect.material.set("shader_parameter/color_black", Color(colors[1]))
-
-func get_palette_colors(the_palette: PALETTE):
-	match the_palette:
+	# update palette color
+	match palette:
 		PALETTE.ORIGINAL:
-			return PALETTE_COLORS["ORIGINAL"]
+			shaderRect.material.set("shader_parameter/color_white", Color("#c7f0d8"))
+			shaderRect.material.set("shader_parameter/color_black", Color("#43523d"))
 		PALETTE.HARSH:
-			return PALETTE_COLORS["HARSH"]
+			shaderRect.material.set("shader_parameter/color_white", Color("#9bc700"))
+			shaderRect.material.set("shader_parameter/color_black", Color("#2b3f09"))
 		PALETTE.GREY:
-			return PALETTE_COLORS["GREY"]
-
-func _set_palette(new_palette : PALETTE) -> void:
-	palette = new_palette
-	update_palette()
-	
+			shaderRect.material.set("shader_parameter/color_white", Color("#879188"))
+			shaderRect.material.set("shader_parameter/color_black", Color("#1a1914"))

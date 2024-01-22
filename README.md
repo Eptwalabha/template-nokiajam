@@ -4,6 +4,8 @@ https://itch.io/jam/nokiajam6
 
 Base project for the nokia game jam 6
 
+![Nokia's startup](./assets/doc/nokia-startup.gif)
+
 ## Shader
 
 The "NOKIA 3310" effect is archive with the shader located in `./assets/shaders/nokial-3310.gdshader`
@@ -29,4 +31,5 @@ By default, this project is setup in `landscape` (ie: 84x48). If you want to set
 - the project's viewport width and height
 - in the main scene, change the size the `SubViewport` node "`Screen`" in the main scene
 
-If I have time, I'll try to make this simpler 
+I'll try to simplify the process in the future
+

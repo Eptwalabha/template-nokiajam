@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://pstqes7jcym2"]
 
-[ext_resource type="Texture2D" uid="uid://bn7s2ix0gi4h" path="res://assets/img/nokia-splash-screen.png" id="1_8guvj"]
 [ext_resource type="Script" path="res://main.gd" id="1_nrtmp"]
+[ext_resource type="PackedScene" uid="uid://5udo2ndf0wju" path="res://scene/NokiaStartup.tscn" id="2_5r5wm"]
 [ext_resource type="Shader" path="res://assets/shaders/nokia-3310.gdshader" id="3_dhqyx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_l502v"]
@@ -28,16 +28,7 @@ disable_3d = true
 transparent_bg = true
 size = Vector2i(84, 48)
 
-[node name="NokiaBG" type="Sprite2D" parent="Screen"]
-texture = ExtResource("1_8guvj")
-centered = false
-
-[node name="Label" type="Label" parent="Screen"]
-offset_right = 79.0
-offset_bottom = 26.0
-text = "NOKIA 6
-3310 Jam
-by @eptwalabha"
+[node name="NokiaStartup" parent="Screen" instance=ExtResource("2_5r5wm")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_udw2h")
