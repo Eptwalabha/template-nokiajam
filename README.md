@@ -14,13 +14,15 @@ The "NOKIA 3310" effect is archive with the shader located in `./assets/shaders/
 
 This shader can be customized:
 - color palette
-- screen-door effect
-- pixel shadow
-- LCD noise level
+- screen-door effect *
+- pixel shadow *
+- LCD noise level *
+
+*: these can be deactivate
 
 ## Change the color palette
 
-The jam only allows three palettes: `ORIGINAL`, `HARSH` and `GREY`. You can set the desired one directly from the `Main` node with the parameter `palette`. It will update in the editor as soon as you pick one.
+The jam only allows three palettes: `ORIGINAL`, `HARSH` and `GREY`. You can set the desired one directly from the `Main` node with the parameter `palette`. You need to reload the scene in order to see the changes.
 
 ![all the palettes](./assets/doc/color-palettes.png)
 
