@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://dxpjsxjcktnp8"]
 
-[ext_resource type="FontFile" uid="uid://cpxiyj34edml5" path="res://assets/fonts/nokia/nokia.ttf" id="1_lmh1p"]
+[ext_resource type="FontFile" uid="uid://cpxiyj34edml5" path="res://assets/fonts/nokia/nokiafc22.ttf" id="1_lmh1p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ai8l"]
 
