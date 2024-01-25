@@ -2,7 +2,7 @@
 extends Node
 
 @onready var screen : SubViewport = $Screen
-@onready var shaderRect : ColorRect = $ColorRect
+@onready var shaderRect : ColorRect = $NokiaShader
 
 @export var orientation: ORIENTATION = ORIENTATION.LANDSCAPE
 @export var palette: PALETTE = PALETTE.ORIGINAL

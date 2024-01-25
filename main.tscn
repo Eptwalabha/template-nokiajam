@@ -17,7 +17,7 @@ shader_parameter/door_effect = 0.08
 shader_parameter/door_intensity = 0.7
 shader_parameter/noise_amount = 0.07
 shader_parameter/shadow_offset = Vector2(0.2, 0.2)
-shader_parameter/shadow_intesity = 0.2
+shader_parameter/shadow_intesity = 0.15
 shader_parameter/screen = SubResource("ViewportTexture_l502v")
 
 [node name="Main" type="Node"]
@@ -30,7 +30,7 @@ size = Vector2i(84, 48)
 
 [node name="NokiaStartup" parent="Screen" instance=ExtResource("2_5r5wm")]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="NokiaShader" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_udw2h")
 anchors_preset = 15
 anchor_right = 1.0
