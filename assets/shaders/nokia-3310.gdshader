@@ -6,10 +6,10 @@ uniform vec4 color_white : source_color = vec4(0.78, 0.941, 0.847, 1.0); // #c7f
 uniform vec4 color_black : source_color = vec4(0.263, 0.322, 0.239, 1.0); // #43523d;
 uniform float door_effect : hint_range(0.0001, 1.0) = 0.1;
 uniform float door_intensity : hint_range(0.0001, 2.0) = 0.8;
-uniform float noise_amount : hint_range(0.0, 1.0) = 0.07;
+uniform float grain_amount : hint_range(0.0, 1.0) = 0.07;
 
 uniform vec2 shadow_offset = vec2(0.2, 0.2);
-uniform float shadow_intesity : hint_range(0.0, 1.0) = 0.2;
+uniform float shadow_intensity : hint_range(0.0, 1.0) = 0.2;
 
 // from https://thebookofshaders.com/10/
 float random(vec2 uv) {
@@ -37,6 +37,6 @@ void fragment() {
 	);
 	pixel_mask *= pow(screen_door, 1.0 / door_intensity);
 	float shadow_mask = threshold(0.5, pixel_shadow) * (1.0 - pixel_mask);
-	float noise = noise_amount * random(UV) - noise_amount / 2.0;
-	COLOR = mix(color_white, color_black, pixel_mask + shadow_mask * shadow_intesity) + noise;
+	float screen_grain = grain_amount * random(UV) - grain_amount / 2.0;
+	COLOR = mix(color_white, color_black, clamp(pixel_mask + shadow_mask * shadow_intensity, 0.0, 1.0)) + screen_grain;
 }

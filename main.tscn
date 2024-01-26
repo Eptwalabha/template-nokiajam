@@ -14,10 +14,10 @@ shader_parameter/screen_resolution = Vector2(84, 48)
 shader_parameter/color_white = Color(0.780392, 0.941176, 0.847059, 1)
 shader_parameter/color_black = Color(0.262745, 0.321569, 0.239216, 1)
 shader_parameter/door_effect = 0.08
-shader_parameter/door_intensity = 0.7
-shader_parameter/noise_amount = 0.07
+shader_parameter/door_intensity = 0.7001
+shader_parameter/grain_amount = 0.07
 shader_parameter/shadow_offset = Vector2(0.2, 0.2)
-shader_parameter/shadow_intesity = 0.15
+shader_parameter/shadow_intensity = 0.15
 shader_parameter/screen = SubResource("ViewportTexture_l502v")
 
 [node name="Main" type="Node"]
@@ -29,6 +29,11 @@ transparent_bg = true
 size = Vector2i(84, 48)
 
 [node name="NokiaStartup" parent="Screen" instance=ExtResource("2_5r5wm")]
+
+[node name="Label" type="Label" parent="Screen"]
+offset_right = 40.0
+offset_bottom = 10.0
+text = "aeiuae"
 
 [node name="NokiaShader" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_udw2h")
