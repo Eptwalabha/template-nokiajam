@@ -30,11 +30,6 @@ size = Vector2i(84, 48)
 
 [node name="NokiaStartup" parent="Screen" instance=ExtResource("2_5r5wm")]
 
-[node name="Label" type="Label" parent="Screen"]
-offset_right = 40.0
-offset_bottom = 10.0
-text = "aeiuae"
-
 [node name="NokiaShader" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_udw2h")
 anchors_preset = 15
