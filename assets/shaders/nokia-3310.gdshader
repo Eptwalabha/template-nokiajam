@@ -20,23 +20,20 @@ float pixel_value(vec4 color) {
 	return (1.0 - (0.3 * color.r + 0.59 * color.g + 0.11 * color.b)) * color.a;
 }
 
-float threshold(float edge, float value) {
-	return clamp(ceil(value / edge - 1.0), 0.0, 1.0);
-}
-
 // TODO
 // - LCD ghosting
+// - blur shadow
 void fragment() {
 	vec2 uv = fract(vec2(UV.x * screen_resolution.x, UV.y * screen_resolution.y));
 	float pixel = pixel_value(texture(screen, UV));
 	float pixel_shadow = pixel_value(texture(screen, UV - shadow_offset / screen_resolution));
-	float pixel_mask = threshold(0.5, pixel);
+	float pixel_mask = step(0.5, pixel);
 	float screen_door = min(
 		min(smoothstep(0.0, door_effect, uv.x), smoothstep(1.0, 1.0 - door_effect, uv.x)),
 		min(smoothstep(0.0, door_effect, uv.y), smoothstep(1.0, 1.0 - door_effect, uv.y))
 	);
 	pixel_mask *= pow(screen_door, 1.0 / door_intensity);
-	float shadow_mask = threshold(0.5, pixel_shadow) * (1.0 - pixel_mask);
+	float shadow_mask = step(0.5, pixel_shadow) * (1.0 - pixel_mask);
 	float screen_grain = grain_amount * random(UV) - grain_amount / 2.0;
 	COLOR = mix(color_white, color_black, clamp(pixel_mask + shadow_mask * shadow_intensity, 0.0, 1.0)) + screen_grain;
 }
