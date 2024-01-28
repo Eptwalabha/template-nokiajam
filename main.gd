@@ -4,8 +4,8 @@ extends Node
 @onready var screen : SubViewport = $Screen
 @onready var shaderRect : ColorRect = $NokiaShader
 
-@export var orientation: ORIENTATION = ORIENTATION.LANDSCAPE
-@export var palette: PALETTE = PALETTE.ORIGINAL
+@export var screen_orientation: ORIENTATION = ORIENTATION.LANDSCAPE
+@export var palette: PALETTE = PALETTE.ORIGINAL : set = set_palette
 
 enum ORIENTATION {
 	LANDSCAPE,
@@ -19,19 +19,28 @@ enum PALETTE {
 }
 
 func _ready() -> void:
-	# update screen resolution
-	var screen_resolution = Vector2(84, 48) if orientation == ORIENTATION.LANDSCAPE else Vector2(48, 84)
-	screen.size = screen_resolution
-	shaderRect.material.set("shader_parameter/screen_resolution", screen_resolution)
+	set_orientation(screen_orientation)
+	set_palette(palette)
 
-	# update palette color
+func set_orientation(new_screen_orientation: ORIENTATION) -> void:
+	screen_orientation = new_screen_orientation
+	var resolution = Vector2(84, 48)
+	if screen_orientation == ORIENTATION.PORTRAIT:
+		resolution = Vector2(48, 84)
+
+	RenderingServer.global_shader_parameter_set("screen_resolution", resolution)
+	if $Screen:
+		$Screen.size = resolution
+
+func set_palette(new_palette: PALETTE) -> void:
+	palette = new_palette
 	match palette:
 		PALETTE.ORIGINAL:
-			shaderRect.material.set("shader_parameter/color_white", Color("#c7f0d8"))
-			shaderRect.material.set("shader_parameter/color_black", Color("#43523d"))
+			RenderingServer.global_shader_parameter_set("color_palette_light", Color("#c7f0d8"))
+			RenderingServer.global_shader_parameter_set("color_palette_dark", Color("#43523d"))
 		PALETTE.HARSH:
-			shaderRect.material.set("shader_parameter/color_white", Color("#9bc700"))
-			shaderRect.material.set("shader_parameter/color_black", Color("#2b3f09"))
+			RenderingServer.global_shader_parameter_set("color_palette_light", Color("#9bc700"))
+			RenderingServer.global_shader_parameter_set("color_palette_dark", Color("#2b3f09"))
 		PALETTE.GREY:
-			shaderRect.material.set("shader_parameter/color_white", Color("#879188"))
-			shaderRect.material.set("shader_parameter/color_black", Color("#1a1914"))
+			RenderingServer.global_shader_parameter_set("color_palette_light", Color("#879188"))
+			RenderingServer.global_shader_parameter_set("color_palette_dark", Color("#1a1914"))

@@ -89,3 +89,18 @@ key_9={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+
+[shader_globals]
+
+color_palette_light={
+"type": "color",
+"value": Color(0.772549, 0.941176, 0.854902, 1)
+}
+color_palette_dark={
+"type": "color",
+"value": Color(0.258824, 0.321569, 0.247059, 1)
+}
+screen_resolution={
+"type": "vec2",
+"value": Vector2(84, 48)
+}
