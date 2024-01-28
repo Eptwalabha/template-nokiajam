@@ -9,18 +9,25 @@ This is best suited for a 2D game.
 # How to use it ?
 
 This project is set to run `main.tscn` on startup. The `Main` scene's structure is as followed:
-<p style="text-align:center;">
+<p align="center">
     <img alt="the main scene tree" src="./assets/doc/main-scene-tree.png" />
 </p>
 
 The idea is to create your game in a scene like you would normally do.
 Instead of running it directly, you simply set it as a child of the `Screen` node.
 
+This project takes care of:
+- Nokia’s screen resolution
+- Input map of the numpad
+- Fonts (nokiafc22 & lowrez)
+- Visual aspect (color palette and others)
+- Framerate (set to 15)
+
 You only have to focus on your game and nothing else.
 
-I provided a simple example with the Nokia's animated splash-screen.
+To help you getting start, you can find a simple example with the Nokia's animated splash-screen in `./scene/NokiaStartup.tscn`.
 
-<p style="text-align:center;">
+<p align="center">
     <img alt="Nokia's startup" src="./assets/doc/nokia-startup.gif" />
 </p>
 
@@ -30,13 +37,26 @@ I provided a simple example with the Nokia's animated splash-screen.
 
 `NokiaShader` is a `ColorRect` with a shader material that will take the rendered image of `Scene` and apply a filter to make it look like a Nokia 3310's screen.
 
+## Sprites
+
+The shader works with pixels that are either:
+- white
+- black
+- transparent
+
+> It is best if you use png for your sprites.
+
+> Any other color will be translate to its corresponding grayscale value. If this value is less than 0.5, the pixel will be white else it will be black.
+
+If you need to overwrite (or clear) a pixel (eg: from a background), use the a white pixel. In the animated Nokia’s logo, both the hands have white pixels that will "hide" the dithered background.
+
 # Customizing the project
 
 ## Change the color palette
 
 This jam only allows three palettes: `ORIGINAL`, `HARSH` and `GREY`. You can set the desired one directly from the `Main` node with the parameter `palette`.
 
-<p style="text-align:center;">
+<p align="center">
     <img src="./assets/doc/color-palettes.png" alt="all the palettes" width="100%"/>
 </p>
 
@@ -65,7 +85,7 @@ But if you need this effect for your game, you can find a complete ordered dithe
 
 The "NOKIA 3310" effect is archived with the shader located in `./assets/shaders/nokial-3310.gdshader`
 
-<p style="text-align:center;">
+<p align="center">
     <img alt="the shader in action" src="./assets/doc/shader-main.png" />
 </p>
 
@@ -96,7 +116,17 @@ When lit, LCD pixel cast tiny shadows below.
 The grainy effect of LCD screen.
 - `Grain Amount` to increase/decrease the effect (`0`: no effect, `1.0`: full effect)
 
-> ⚠️ This effect could be a rule-breaker: This add a tiny amount of noise to the pixel, thus not complying 100% with the "fixed palette" rule. I'll check with the host of the jam to see if this is allowed.
+### Deactivating an effect
+
+If for some reason, you wish to deactivate one (if not all) of the effects, you can do so by uncommenting the following lines located on top of the shader `./assets/shaders/nokia-3310.gdshader`:
+
+```gdshader
+//#define DISABLE_DOOR_EFFECT
+//#define DISABLE_PIXEL_GRAIN
+//#define DISABLE_PIXEL_SHADOWS
+```
+
+Uncommenting one of the lines and saving the shader will recompile it without the corresponding effect. Commenting one of these lines back again will enabled it again.
 
 # Credits
 
