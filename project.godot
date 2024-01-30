@@ -101,6 +101,10 @@ move_down={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/i18n/translations.en.translation", "res://assets/i18n/translations.fr.translation", "res://assets/i18n/translations.es.translation")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
