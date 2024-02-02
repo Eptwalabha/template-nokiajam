@@ -60,8 +60,6 @@ This jam only allows three palettes: `ORIGINAL`, `HARSH` and `GREY`. You can set
     <img src="./assets/doc/color-palettes.png" alt="all the palettes" width="100%"/>
 </p>
 
-> You need to reload the scene to see the changes.
-
 ## Set your viewport in `portrait` instead of `landscape`
 
 By default, this project is setup in `landscape` (ie: 84x48). If you want to set your game to `portrait` (ie: 48x84), you need to:
@@ -72,7 +70,7 @@ By default, this project is setup in `landscape` (ie: 84x48). If you want to set
 
 ## Change the resolution of your game window
 
-Because the SubViewport `Screen` will be rendered directly in `NokiaShader`. You can set the resolution directly in your project's settings.
+Because the SubViewport `Screen` will be rendered directly in `NokiaShader`. You can set the size of the game window directly in your project's settings.
 
 > 💡: You can resize the `NokiaShader` however you like. For example: you can scale it down and place a background image of a nokia 3310 behind it.
 
