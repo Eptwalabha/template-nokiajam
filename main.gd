@@ -1,10 +1,10 @@
 @tool
 extends Node
 
-@onready var screen : SubViewport = $Screen
-@onready var shaderRect : ColorRect = $NokiaShader
+@onready var screen : SubViewport = %Screen
+@onready var shaderRect : ColorRect = %NokiaShader
 
-@export var screen_orientation: ORIENTATION = ORIENTATION.LANDSCAPE
+@export var screen_orientation: ORIENTATION = ORIENTATION.LANDSCAPE : set = set_orientation
 @export var palette: PALETTE = PALETTE.ORIGINAL : set = set_palette
 
 enum ORIENTATION {
@@ -18,29 +18,22 @@ enum PALETTE {
 	GREY
 }
 
-func _ready() -> void:
-	set_orientation(screen_orientation)
-	set_palette(palette)
+const palettes = {
+	PALETTE.ORIGINAL: ["#c7f0d8", "#43523d"],
+	PALETTE.HARSH: ["#9bc700", "#2b3f09"],
+	PALETTE.GREY: ["#879188", "#1a1914"]
+}
 
 func set_orientation(new_screen_orientation: ORIENTATION) -> void:
 	screen_orientation = new_screen_orientation
 	var resolution = Vector2(84, 48)
 	if screen_orientation == ORIENTATION.PORTRAIT:
 		resolution = Vector2(48, 84)
-
 	RenderingServer.global_shader_parameter_set("screen_resolution", resolution)
-	if $Screen:
-		$Screen.size = resolution
+	if screen:
+		screen.size = resolution
 
 func set_palette(new_palette: PALETTE) -> void:
 	palette = new_palette
-	match palette:
-		PALETTE.ORIGINAL:
-			RenderingServer.global_shader_parameter_set("color_palette_light", Color("#c7f0d8"))
-			RenderingServer.global_shader_parameter_set("color_palette_dark", Color("#43523d"))
-		PALETTE.HARSH:
-			RenderingServer.global_shader_parameter_set("color_palette_light", Color("#9bc700"))
-			RenderingServer.global_shader_parameter_set("color_palette_dark", Color("#2b3f09"))
-		PALETTE.GREY:
-			RenderingServer.global_shader_parameter_set("color_palette_light", Color("#879188"))
-			RenderingServer.global_shader_parameter_set("color_palette_dark", Color("#1a1914"))
+	RenderingServer.global_shader_parameter_set("color_palette_light", Color(palettes[palette][0]))
+	RenderingServer.global_shader_parameter_set("color_palette_dark",  Color(palettes[palette][1]))

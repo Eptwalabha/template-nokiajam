@@ -21,6 +21,7 @@ shader_parameter/screen = SubResource("ViewportTexture_l502v")
 script = ExtResource("1_nrtmp")
 
 [node name="Screen" type="SubViewport" parent="."]
+unique_name_in_owner = true
 disable_3d = true
 transparent_bg = true
 size = Vector2i(84, 48)
@@ -28,6 +29,7 @@ size = Vector2i(84, 48)
 [node name="NokiaStartup" parent="Screen" instance=ExtResource("2_5r5wm")]
 
 [node name="NokiaShader" type="ColorRect" parent="."]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_udw2h")
 anchors_preset = 15
 anchor_right = 1.0
