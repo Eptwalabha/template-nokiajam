@@ -48,13 +48,13 @@ void fragment() {
 #ifndef DISABLE_PIXEL_SHADOWS
 	float pixel_shadow = pixel_value(texture(screen, UV - shadow_offset / screen_resolution));
 	float shadow_mask = step(0.5, pixel_shadow) * (1.0 - pixel_mask);
-	COLOR = mix(color_palette_light, color_palette_dark, clamp(fma(shadow_mask, shadow_intensity, pixel_mask), 0.0, 1.0));
+	COLOR = mix(color_palette_light, color_palette_dark, clamp(shadow_mask * shadow_intensity + pixel_mask, 0.0, 1.0));
 #else
 	COLOR = mix(color_palette_light, color_palette_dark, pixel_mask);
 #endif
 
 #ifndef DISABLE_PIXEL_GRAIN
-	float screen_grain = fma(grain_amount, random(UV), -grain_amount / 2.0);
+	float screen_grain = grain_amount * random(UV) - grain_amount / 2.0;
 	COLOR.rgb += screen_grain;
 #endif
 }
