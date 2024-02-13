@@ -4,8 +4,6 @@ https://itch.io/jam/nokiajam6
 
 Starter for the nokia game jam 6 made for Godot 4.2
 
-This is best suited for a 2D game.
-
 # How to use it ?
 
 This project is set to run `main.tscn` on startup. The `Main` scene's structure is as followed:
@@ -17,11 +15,12 @@ The idea is to create your game in a scene like you would normally do.
 Instead of running it directly, you simply set it as a child of the `Screen` node.
 
 This project takes care of:
-- Nokia’s screen resolution
+- Nokia’s screen resolution + pixel's aspect ratio
 - Input map of the numpad
 - Fonts (nokiafc22 & lowrez)
 - Visual aspect (color palette and others)
 - Framerate (set to 15)
+- Snap 2D vertices to pixel is enabled by default
 
 You only have to focus on your game and nothing else.
 
@@ -52,21 +51,25 @@ If you need to overwrite (or clear) a pixel (eg: from a background), use the a w
 
 # Customizing the project
 
+The color palette and the screen orientation can be change directly from the `Main` node:
+
+<p align="center">
+    <img src="./assets/doc/main-parameters.png" alt="main node options" />
+</p>
+
 ## Change the color palette
 
-This jam only allows three palettes: `ORIGINAL`, `HARSH` and `GREY`. You can set the desired one directly from the `Main` node with the parameter `palette`.
+This jam only allows three palettes: `ORIGINAL`, `HARSH` and `GREY`.
 
 <p align="center">
     <img src="./assets/doc/color-palettes.png" alt="all the palettes" width="100%"/>
 </p>
 
-## Set your viewport in `portrait` instead of `landscape`
+## Screen orientation to `Portrait` / `Landscape`
 
-By default, this project is setup in `landscape` (ie: 84x48). If you want to set your game to `portrait` (ie: 48x84), you need to:
-- set the main scene's orientation as `PORTRAIT`
-- update the project window's width and height accordingly
+By default, this project will display your game in `Landscape` (ie: 84x48), but if you wish you can change the orientation to `Portrait` (ie: 48x84).
 
-> Nokia's pixels are not square but rather rectangular. Their aspect ratio is 3:4 meaning they are taller than they are wide in landscape mode. Therefore, please ensure that the aspect ratio of the `NokiaShader` remains the same. Keep this in mind if you set your game to portrait.
+> Nokia's pixels are not squares, in `Landscape` mode, they're slightly taller than they're wide. If you switch the screen orientation to `Portrait`, this project will also invert the aspect ratio of the pixel (they become wider than tall).
 
 ## Change the resolution of your game window
 
