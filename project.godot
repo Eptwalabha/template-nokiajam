@@ -16,12 +16,6 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=15
 config/icon="res://icon.svg"
 
-[display]
-
-window/size/viewport_width=840
-window/size/viewport_height=640
-window/stretch/mode="viewport"
-
 [gui]
 
 fonts/dynamic_fonts/use_oversampling=false

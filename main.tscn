@@ -29,12 +29,15 @@ size = Vector2i(84, 48)
 
 [node name="NokiaStartup" parent="Screen" instance=ExtResource("2_5r5wm")]
 
-[node name="NokiaShader" type="ColorRect" parent="."]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_udw2h")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
+ratio = 1.36364
+
+[node name="NokiaShader" type="ColorRect" parent="AspectRatioContainer"]
+material = SubResource("ShaderMaterial_udw2h")
+layout_mode = 2
