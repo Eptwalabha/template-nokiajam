@@ -67,7 +67,7 @@ This jam only allows three palettes: `ORIGINAL`, `HARSH` and `GREY`.
 
 ## Screen orientation to `Portrait` / `Landscape`
 
-By default, this project will display your game in `Landscape` (ie: 84x48), but if you wish you can change the orientation to `Portrait` (ie: 48x84).
+By default, this project will display your game in `Landscape` (ie: 84x48), but if you wish, you can change the orientation to `Portrait` (ie: 48x84).
 
 > Nokia's pixels are not squares, in `Landscape` mode, they're slightly taller than they're wide. If you switch the screen orientation to `Portrait`, this project will also invert the aspect ratio of the pixel (they become wider than tall).
 
