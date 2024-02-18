@@ -30,7 +30,7 @@ const palettes = {
 var resolution = Vector2(84, 48)
 
 func _ready() -> void:
-	set_orientation(screen_orientation)
+	_update_aspect_ratio()
 
 func set_orientation(new_screen_orientation: ORIENTATION) -> void:
 	if screen_orientation != new_screen_orientation:
