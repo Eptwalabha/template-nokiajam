@@ -129,6 +129,10 @@ If for some reason, you wish to deactivate one (if not all) of the effects, you 
 
 Uncommenting one of the lines and saving the shader will recompile it without the corresponding effect. Commenting one of these lines back again will enabled it again.
 
+## Example
+
+You can find an demo scene in `./scene/NokiaStartup.tscn`. To make it work, simply add it as a child of the `Screen` node and launch the project.
+
 # Credits
 
 The font [nokia.ttf](./assets/fonts/nokia/nokia.ttf) was made by [Zeh Fernando](https://portfolio.zehfernando.com/) and is available on [dafont.com](https://www.dafont.com/nokia-cellphone.font) for free.  
