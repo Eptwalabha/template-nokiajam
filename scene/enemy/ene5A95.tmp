@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://sdnspgif0hp3"]
+
+[ext_resource type="Script" path="res://scene/enemy/enemy.gd" id="1_ybju4"]
+[ext_resource type="Texture2D" uid="uid://cwf1ymmdglt3h" path="res://assets/img/enemies/bat.png" id="2_yw44u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8po5"]
+radius = 8.06226
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lllui"]
+atlas = ExtResource("2_yw44u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8klm"]
+atlas = ExtResource("2_yw44u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht520"]
+atlas = ExtResource("2_yw44u")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spxvx"]
+atlas = ExtResource("2_yw44u")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi5bx"]
+atlas = ExtResource("2_yw44u")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5oxn"]
+atlas = ExtResource("2_yw44u")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60auj"]
+atlas = ExtResource("2_yw44u")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wfqd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lllui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8klm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht520")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spxvx")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi5bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5oxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60auj")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_ybju4")
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d8po5")
+
+[node name="Bat" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0wfqd")
+animation = &"hurt"

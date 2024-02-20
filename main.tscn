@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://pstqes7jcym2"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_nrtmp"]
-[ext_resource type="PackedScene" uid="uid://5udo2ndf0wju" path="res://scene/NokiaStartup.tscn" id="2_5r5wm"]
+[ext_resource type="PackedScene" uid="uid://c6giusprlr2fb" path="res://scene/game/game.tscn" id="2_khp14"]
 [ext_resource type="Shader" path="res://assets/shaders/nokia-3310.gdshader" id="3_dhqyx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_l502v"]
@@ -19,6 +19,7 @@ shader_parameter/screen = SubResource("ViewportTexture_l502v")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_nrtmp")
+palette = 2
 
 [node name="Screen" type="SubViewport" parent="."]
 unique_name_in_owner = true
@@ -27,7 +28,7 @@ transparent_bg = true
 snap_2d_vertices_to_pixel = true
 size = Vector2i(84, 48)
 
-[node name="NokiaStartup" parent="Screen" instance=ExtResource("2_5r5wm")]
+[node name="Game" parent="Screen" instance=ExtResource("2_khp14")]
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 unique_name_in_owner = true
@@ -36,7 +37,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-ratio = 1.36364
+ratio = 1.7727
+stretch_mode = 0
 
 [node name="NokiaShader" type="ColorRect" parent="AspectRatioContainer"]
 material = SubResource("ShaderMaterial_udw2h")
