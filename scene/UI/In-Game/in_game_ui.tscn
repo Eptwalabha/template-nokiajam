@@ -1,23 +1,282 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhcy5fgbb6s73"]
+[gd_scene load_steps=18 format=3 uid="uid://bhcy5fgbb6s73"]
 
 [ext_resource type="Script" path="res://scene/UI/In-Game/in_game_ui.gd" id="1_lrcwv"]
+[ext_resource type="Texture2D" uid="uid://lht3o21c208r" path="res://assets/img/UI/In-Game/game_ui.png" id="2_5mt6n"]
+[ext_resource type="FontFile" uid="uid://djah1i7xp3xuf" path="res://assets/fonts/tiny/tiny.ttf" id="3_n7d6q"]
+[ext_resource type="Texture2D" uid="uid://bgqykclphb43n" path="res://assets/img/UI/In-Game/menu_button/menu_1.png" id="4_5c4fw"]
+[ext_resource type="Texture2D" uid="uid://hdugydt1pe5u" path="res://assets/img/UI/In-Game/menu_button/menu_2.png" id="5_5gqm8"]
+[ext_resource type="Texture2D" uid="uid://ckmdxpqeopblj" path="res://assets/img/UI/In-Game/freeze_anim.png" id="6_x0utj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlrd7"]
+atlas = ExtResource("2_5mt6n")
+region = Rect2(1, 60, 24, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apaq6"]
+atlas = ExtResource("2_5mt6n")
+region = Rect2(2, 58, 22, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjxpw"]
+atlas = ExtResource("6_x0utj")
+region = Rect2(0, 0, 84, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g47vv"]
+atlas = ExtResource("2_5mt6n")
+region = Rect2(0, 46, 84, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pd5y"]
+atlas = ExtResource("2_5mt6n")
+region = Rect2(0, 43, 84, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj3gn"]
+atlas = ExtResource("2_5mt6n")
+region = Rect2(0, 41, 84, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fmkev"]
+frames = 2
+frame_0/texture = ExtResource("4_5c4fw")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("5_5gqm8")
+frame_1/duration = 0.5
+
+[sub_resource type="Animation" id="Animation_mji63"]
+resource_name = "freeze_in"
+length = 0.333337
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FreezeUI/TimeFreezeAnim:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 84, 48), Rect2(84, 0, 84, 48), Rect2(168, 0, 84, 48), Rect2(252, 0, 84, 48), Rect2(336, 0, 84, 48), Rect2(420, 0, 84, 48), Rect2(504, 0, 84, 48), Rect2(0, 0, 84, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FreezeUI/BottomBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 52), Vector2(0, 38)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FreezeUI/HpText:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-22, 4), Vector2(2, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_3tcjd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FreezeUI/TimeFreezeAnim:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 84, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FreezeUI/BottomBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 53)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FreezeUI/HpText:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-22, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_ogkk0"]
+resource_name = "freeze_out"
+length = 0.333337
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FreezeUI/TimeFreezeAnim:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 84, 48), Rect2(504, 0, 84, 48), Rect2(420, 0, 84, 48), Rect2(336, 0, 84, 48), Rect2(252, 0, 84, 48), Rect2(168, 0, 84, 48), Rect2(84, 0, 84, 48), Rect2(0, 0, 84, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FreezeUI/BottomBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 38), Vector2(0, 52)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FreezeUI/HpText:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 4), Vector2(-22, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ye48c"]
+_data = {
+"RESET": SubResource("Animation_3tcjd"),
+"freeze_in": SubResource("Animation_mji63"),
+"freeze_out": SubResource("Animation_ogkk0")
+}
 
 [node name="In-Game UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lrcwv")
 
-[node name="test" type="Label" parent="."]
+[node name="HpBar" type="TextureProgressBar" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 25.0
+offset_bottom = 4.0
+value = 98.0
+texture_under = SubResource("AtlasTexture_qlrd7")
+texture_progress = SubResource("AtlasTexture_apaq6")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="FreezeUI" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 84.0
+offset_bottom = 48.0
+
+[node name="TimeFreezeAnim" type="TextureRect" parent="FreezeUI"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -24.0
+offset_right = 42.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "test"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = SubResource("AtlasTexture_fjxpw")
+
+[node name="HpText" type="Label" parent="FreezeUI"]
+layout_mode = 1
+offset_left = -22.0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 12.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_n7d6q")
+theme_override_font_sizes/font_size = 6
+text = "20/20"
+
+[node name="BottomBar" type="Control" parent="FreezeUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LevelText" type="Label" parent="FreezeUI/BottomBar"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_n7d6q")
+theme_override_font_sizes/font_size = 6
+text = "lvl. 0"
+horizontal_alignment = 2
+
+[node name="XpBar" type="TextureProgressBar" parent="FreezeUI/BottomBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -2.0
+offset_right = 42.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 50.0
+texture_under = SubResource("AtlasTexture_g47vv")
+texture_over = SubResource("AtlasTexture_5pd5y")
+texture_progress = SubResource("AtlasTexture_kj3gn")
+texture_progress_offset = Vector2(0, 1)
+
+[node name="SpaceBarIcon" type="TextureRect" parent="FreezeUI/BottomBar"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -13.0
+offset_right = 29.0
+offset_bottom = -3.0
+grow_vertical = 0
+texture = SubResource("AnimatedTexture_fmkev")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ye48c")
+}
