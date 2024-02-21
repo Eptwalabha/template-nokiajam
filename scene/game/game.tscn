@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6giusprlr2fb"]
+[gd_scene load_steps=17 format=3 uid="uid://c6giusprlr2fb"]
 
 [ext_resource type="Texture2D" uid="uid://bjy06hfqok0au" path="res://assets/img/tilesets/brick_walls_light.png" id="1_jdasb"]
+[ext_resource type="Script" path="res://scene/game/game.gd" id="1_nispk"]
 [ext_resource type="Texture2D" uid="uid://ts6gb1hmcgre" path="res://assets/img/tilesets/brick_walls_dark.png" id="2_avh28"]
 [ext_resource type="PackedScene" uid="uid://cipwrqqknwnrr" path="res://scene/player/player.tscn" id="2_np5c5"]
 [ext_resource type="Script" path="res://scene/game/MainCamera.gd" id="3_avj8l"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dsf8okjtvgivm" path="res://assets/img/tilesets/nature.png" id="4_il6hn"]
 [ext_resource type="Script" path="res://scene/game/Spawner.gd" id="7_et3kj"]
 [ext_resource type="PackedScene" uid="uid://5kv27ewaf3f6" path="res://scene/weapons/snowball/snowball.tscn" id="8_bsg2o"]
+[ext_resource type="PackedScene" uid="uid://bhcy5fgbb6s73" path="res://scene/UI/In-Game/in_game_ui.tscn" id="10_dhnfl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysga3"]
 texture = ExtResource("1_jdasb")
@@ -140,7 +142,9 @@ texture_region_size = Vector2i(8, 8)
 tile_size = Vector2i(8, 8)
 sources/0 = SubResource("TileSetAtlasSource_8kn6h")
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("ingameui")]
+script = ExtResource("1_nispk")
+ingameui = NodePath("UICanvasLayer/In-Game UI")
 
 [node name="MainTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_olvmd")
@@ -167,3 +171,7 @@ player = NodePath("../Player")
 
 [node name="Snowball" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("8_bsg2o")]
 _player = NodePath("../Player")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="In-Game UI" parent="UICanvasLayer" instance=ExtResource("10_dhnfl")]

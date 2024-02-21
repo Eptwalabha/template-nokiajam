@@ -7,7 +7,7 @@ var player: CharacterBody2D
 var type: Enemies
 var _virtual_position = Vector2(0, 0)
 var _hurting = false
-@onready var bat = $Bat
+@onready var _bat = $Bat
 
 
 
@@ -58,18 +58,18 @@ func _bat_control():
 
 func _bat_animation_control():
 	if TIME.frozen:
-		bat.pause()
+		_bat.pause()
 	else:
 		if _hurting:
-			if bat.animation != "hurt":
-				bat.play("hurt")
-			if !bat.is_playing():
-				bat.play()
-			if bat.frame == 2:
+			if _bat.animation != "hurt":
+				_bat.play("hurt")
+			if !_bat.is_playing():
+				_bat.play()
+			if _bat.frame == 2:
 				_hurting = false
 		else:
-			if bat.animation != "flying":
-				bat.play("flying")
-			if !bat.is_playing():
-				bat.play()
-			_sprite_flipping(bat)
+			if _bat.animation != "flying":
+				_bat.play("flying")
+			if !_bat.is_playing():
+				_bat.play()
+			_sprite_flipping(_bat)

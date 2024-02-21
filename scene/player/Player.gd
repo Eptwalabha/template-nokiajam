@@ -9,6 +9,7 @@ var health = Health.new()
 var moving = false
 var _virtual_position = Vector2(0.0, 0.0)
 var _cooldown = 0.0
+var _hurting = false
 
 
 func get_input():
@@ -36,12 +37,25 @@ func _physics_process(delta):
 
 
 func _update_player_sprite():
-	if !_player_sprite.is_playing():
-		_player_sprite.play("idle")
-	if moving:
-		_player_sprite.animation = "right"
+	if _hurting:
+		if _player_sprite.animation != "hurt":
+			_player_sprite.play("hurt")
+		if !_player_sprite.is_playing():
+			_player_sprite.play()
+		if _player_sprite.frame == 2:
+			_player_sprite = false
 	else:
-		_player_sprite.animation = "idle"
+		if moving:
+			if _player_sprite.animation != "right":
+				_player_sprite.play("right")
+		else:
+			if _player_sprite.animation != "idle":
+				_player_sprite.play("idle")
+		if !_player_sprite.is_playing():
+			_player_sprite.play()
+	_sprite_flipping()
+
+func _sprite_flipping():
 	if velocity.x > 0:
 		_player_sprite.flip_h = false
 		_player_sprite.offset.x = 0
