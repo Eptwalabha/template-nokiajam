@@ -1,0 +1,21 @@
+name: Static checks
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  static-checks:
+    name: 'Static checks'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: Scony/godot-gdscript-toolkit@master
+    - run: gdformat --check .
+    - run: gdlint .
+
