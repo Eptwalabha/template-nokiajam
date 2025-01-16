@@ -1,8 +1,8 @@
-# NokiaJam6
+# Nokia3310 Jam
 
-https://itch.io/jam/nokiajam6
+https://itch.io/jam/nokiajam7
 
-Starter for the nokia game jam 6 made for Godot 4.2
+Starter for the nokia 3310 game jam made for Godot 4.4
 
 # How to use it ?
 

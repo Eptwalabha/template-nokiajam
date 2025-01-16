@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://pstqes7jcym2"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_nrtmp"]
-[ext_resource type="Shader" path="res://assets/shaders/nokia-3310.gdshader" id="3_dhqyx"]
+[ext_resource type="Script" uid="uid://dqpy8ts768gss" path="res://main.gd" id="1_nrtmp"]
+[ext_resource type="Shader" uid="uid://cma38na5dxh2l" path="res://assets/shaders/nokia-3310.gdshader" id="3_dhqyx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_l502v"]
 viewport_path = NodePath("Screen")
@@ -9,12 +9,12 @@ viewport_path = NodePath("Screen")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_udw2h"]
 resource_local_to_scene = true
 shader = ExtResource("3_dhqyx")
+shader_parameter/screen = SubResource("ViewportTexture_l502v")
 shader_parameter/door_effect = 0.08
 shader_parameter/door_intensity = 0.7001
 shader_parameter/grain_amount = 0.07
 shader_parameter/shadow_offset = Vector2(0.2, 0.2)
 shader_parameter/shadow_intensity = 0.2
-shader_parameter/screen = SubResource("ViewportTexture_l502v")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_nrtmp")

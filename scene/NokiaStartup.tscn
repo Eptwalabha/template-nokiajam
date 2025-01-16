@@ -230,8 +230,8 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_obovh"]
 _data = {
-"RESET": SubResource("Animation_u2f00"),
-"startup": SubResource("Animation_3bsop")
+&"RESET": SubResource("Animation_u2f00"),
+&"startup": SubResource("Animation_3bsop")
 }
 
 [node name="NokiaStartup" type="Node"]
@@ -268,14 +268,16 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="."]
 visible = false
-offset_right = 79.0
-offset_bottom = 26.0
-text = "NOKIA 6
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 27.0
+text = "NOKIA 7
 3310 Jam
 by @eptwalabha"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_obovh")
+&"": SubResource("AnimationLibrary_obovh")
 }
 autoplay = "startup"
